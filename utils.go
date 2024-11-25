@@ -23,7 +23,7 @@ type ResponseData struct {
 	Data interface{} `json:"data"`
 }
 
-func LoginToWiz(clientId, clientSecret string) (AccessToken, error) {
+func LoginToWiz(clientId, clientSecret, endpoint string) (AccessToken, error) {
 
 	auth_data := url.Values{}
 
@@ -34,7 +34,7 @@ func LoginToWiz(clientId, clientSecret string) (AccessToken, error) {
 
 	client := &http.Client{}
 
-	r, err := http.NewRequest(http.MethodPost, "https://auth.app.wiz.io/oauth/token", strings.NewReader(auth_data.Encode()))
+	r, err := http.NewRequest(http.MethodPost, endpoint, strings.NewReader(auth_data.Encode()))
 	if err != nil {
 		log.Fatal("Error creating request in login: ", err)
 		return AccessToken{}, err
