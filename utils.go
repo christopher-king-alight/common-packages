@@ -10,11 +10,6 @@ import (
 	"strings"
 )
 
-type SecretResponse struct {
-	ClientId     string `json:"WIZ_CLIENT_ID"`
-	ClientSecret string `json:"WIZ_CLIENT_SECRET"`
-	Endpoint     string `json:"WIZ_ENDPOINT"`
-}
 type AccessToken struct {
 	Token string `json:"access_token"`
 }
